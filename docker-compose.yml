@@ -6,7 +6,7 @@ services:
     image: lyrica:local      # <--- Etiqueta local para evitar buscar en Docker Hub
     container_name: lyrica
     ports:
-      - "8092:8092"          # Confirma el puerto que exponga Lyrica (habitualmente 8080 o 3000)
+      - "8092:7860"          # Confirma el puerto que exponga Lyrica (habitualmente 8080 o 3000)
     networks:
       - lrc_network          # Se une a la red compartida con lrcgen-whisper y Checker-Gen
     restart: unless-stopped
