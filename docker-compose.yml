@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  lyrica:
+    build: .                 # <--- Le indica a Docker que construya localmente desde el Dockerfile
+    image: lyrica:local      # <--- Etiqueta local para evitar buscar en Docker Hub
+    container_name: lyrica
+    ports:
+      - "8080:8080"          # Confirma el puerto que exponga Lyrica (habitualmente 8080 o 3000)
+    networks:
+      - lrc_network          # Se une a la red compartida con lrcgen-whisper y Checker-Gen
+    restart: unless-stopped
+
+networks:
+  lrc_network:
+    external: true
+    name: lrc_network
